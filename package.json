@@ -1,0 +1,43 @@
+{
+  "name": "famobi-analytics",
+  "version": "0.1.0",
+  "description": "backend for collecting game analytics",
+  "keywords": [
+    "node",
+    "analytics",
+    "firebase"
+  ],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "cross-env FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-famobi-analytics METADATA_SERVER_DETECTION=none tsx watch src/server.ts",
+    "emulators": "firebase emulators:start --project demo-famobi-analytics",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "firebase:check": "cross-env FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-famobi-analytics METADATA_SERVER_DETECTION=none tsx scripts/check-firebase.ts",
+    "firebase:seed": "cross-env FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-famobi-analytics METADATA_SERVER_DETECTION=none tsx scripts/seed-firebase.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "firebase-admin": "^14.5.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "@types/supertest": "^7.2.1",
+    "cross-env": "^10.1.0",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "uuid": "^14.0.2",
+    "vitest": "^5.0.3"
+  }
+}
